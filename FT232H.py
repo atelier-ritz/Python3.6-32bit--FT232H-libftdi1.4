@@ -259,20 +259,20 @@ class FT232H(GPIO.BaseGPIO):
         to 30mhz and will pick that speed or the closest speed below it.
         """
         # Disable clock divisor by 5 to enable faster speeds on FT232H.
-        self._write('\x8A')
+        self._write(b'\x8A')
         # Turn on/off adaptive clocking.
         if adaptive:
-            self._write('\x96')
+            self._write(b'\x96')
         else:
-            self._write('\x97')
+            self._write(b'\x97')
         # Turn on/off three phase clock (needed for I2C).
         # Also adjust the frequency for three-phase clocking as specified in section 2.2.4
         # of this document:
         #   http://www.ftdichip.com/Support/Documents/AppNotes/AN_255_USB%20to%20I2C%20Example%20using%20the%20FT232H%20and%20FT201X%20devices.pdf
         if three_phase:
-            self._write('\x8C')
+            self._write(b'\x8C')
         else:
-            self._write('\x8D')
+            self._write(b'\x8D')
         # Compute divisor for requested clock.
         # Use equation from section 3.8.1 of:
         #  http://www.ftdichip.com/Support/Documents/AppNotes/AN_108_Command_Processor_for_MPSSE_and_MCU_Host_Bus_Emulation_Modes.pdf
@@ -282,7 +282,7 @@ class FT232H(GPIO.BaseGPIO):
             divisor = int(divisor*(2.0/3.0))
         logger.debug('Setting clockspeed with divisor value {0}'.format(divisor))
         # Send command to set divisor from low and high byte values.
-        self._write(bytearray((0x86, divisor & 0xFF, (divisor >> 8) & 0xFF)))
+        self._write(bytes((0x86, divisor & 0xFF, (divisor >> 8) & 0xFF)))
 
     def mpsse_read_gpio(self):
         """Read both GPIO bus states and return a 16 bit value with their state.
@@ -555,15 +555,15 @@ class I2CDevice(object):
     def _transaction_start(self):
         """Start I2C transaction."""
         # Clear command buffer and expected response bytes.
-        self._command = []
+        self._command = bytearray()
         self._expected = 0
 
     def _transaction_end(self):
         """End I2C transaction and get response bytes, including ACKs."""
         # Ask to return response bytes immediately.
-        self._command.append('\x87')
+        self._command.extend(b'\x87')
         # Send the entire command to the MPSSE.
-        self._ft232h._write(''.join(self._command))
+        self._ft232h._write(bytes(self._command))
         # Read response bytes and return them.
         return bytearray(self._ft232h._poll_read(self._expected))
 
@@ -573,30 +573,30 @@ class I2CDevice(object):
         # Set SCL high and SDA low, repeat 4 times to stay in this state for a
         # short period of time.
         self._ft232h.output_pins({0: GPIO.HIGH, 1: GPIO.LOW}, write=False)
-        self._command.append(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
+        self._command.extend(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
         # Now drop SCL to low (again repeat 4 times for short delay).
         self._ft232h.output_pins({0: GPIO.LOW, 1: GPIO.LOW}, write=False)
-        self._command.append(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
+        self._command.extend(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
 
     def _i2c_idle(self):
         """Set I2C signals to idle state with SCL and SDA at a high value. Must
         be called within a transaction start/end.
         """
         self._ft232h.output_pins({0: GPIO.HIGH, 1: GPIO.HIGH}, write=False)
-        self._command.append(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
+        self._command.extend(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
 
     def _i2c_stop(self):
         """Send I2C stop signal. Must be called within a transaction start/end.
         """
         # Set SCL low and SDA low for a short period.
         self._ft232h.output_pins({0: GPIO.LOW, 1: GPIO.LOW}, write=False)
-        self._command.append(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
+        self._command.extend(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
         # Set SCL high and SDA low for a short period.
         self._ft232h.output_pins({0: GPIO.HIGH, 1: GPIO.LOW}, write=False)
-        self._command.append(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
+        self._command.extend(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
         # Finally set SCL high and SDA high for a short period.
         self._ft232h.output_pins({0: GPIO.HIGH, 1: GPIO.HIGH}, write=False)
-        self._command.append(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
+        self._command.extend(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
 
     def _i2c_read_bytes(self, length=1):
         """Read the specified number of bytes from the I2C bus.  Length is the
@@ -604,15 +604,15 @@ class I2CDevice(object):
         """
         for i in range(length-1):
             # Read a byte and send ACK.
-            self._command.append('\x20\x00\x00\x13\x00\x00')
+            self._command.extend(b'\x20\x00\x00\x13\x00\x00')
             # Make sure pins are back in idle state with clock low and data high.
             self._ft232h.output_pins({0: GPIO.LOW, 1: GPIO.HIGH}, write=False)
-            self._command.append(self._ft232h.mpsse_gpio())
+            self._command.extend(self._ft232h.mpsse_gpio())
         # Read last byte and send NAK.
-        self._command.append('\x20\x00\x00\x13\x00\xFF')
+        self._command.extend(b'\x20\x00\x00\x13\x00\xFF')
         # Make sure pins are back in idle state with clock low and data high.
         self._ft232h.output_pins({0: GPIO.LOW, 1: GPIO.HIGH}, write=False)
-        self._command.append(self._ft232h.mpsse_gpio())
+        self._command.extend(self._ft232h.mpsse_gpio())
         # Increase expected number of bytes.
         self._expected += length
 
@@ -620,12 +620,12 @@ class I2CDevice(object):
         """Write the specified number of bytes to the chip."""
         for byte in data:
             # Write byte.
-            self._command.append(str(bytearray((0x11, 0x00, 0x00, byte))))
+            self._command.extend(bytearray((0x11, 0x00, 0x00, byte)))
             # Make sure pins are back in idle state with clock low and data high.
             self._ft232h.output_pins({0: GPIO.LOW, 1: GPIO.HIGH}, write=False)
-            self._command.append(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
+            self._command.extend(self._ft232h.mpsse_gpio() * _REPEAT_DELAY)
             # Read bit for ACK/NAK.
-            self._command.append('\x22\x00')
+            self._command.extend(b'\x22\x00')
         # Increase expected response bytes.
         self._expected += len(data)
 
