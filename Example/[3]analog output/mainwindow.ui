@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>503</width>
+    <height>341</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>301</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Manual Control</string>
+    </property>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>271</width>
+       <height>251</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>VOUT A</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="sld_voltA">
+          <property name="maximum">
+           <number>4095</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spb_voltA">
+          <property name="maximum">
+           <number>4095</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>VOUT B</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="sld_voltB">
+          <property name="maximum">
+           <number>4095</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spb_voltB">
+          <property name="maximum">
+           <number>4095</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>VOUT C</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="sld_voltC">
+          <property name="maximum">
+           <number>4095</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spb_voltC">
+          <property name="maximum">
+           <number>4095</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>VOUT D</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="sld_voltD">
+          <property name="maximum">
+           <number>4095</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spb_voltD">
+          <property name="maximum">
+           <number>4095</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>10</y>
+      <width>171</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Real-time monitor</string>
+    </property>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>D7</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>C0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_d7">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>30</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_c0">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>50</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>503</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>sld_voltA</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spb_voltA</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>251</x>
+     <y>75</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sld_voltB</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spb_voltB</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sld_voltC</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spb_voltC</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>208</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>268</x>
+     <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sld_voltD</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spb_voltD</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>276</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>251</x>
+     <y>273</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spb_voltA</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>sld_voltA</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>245</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>87</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spb_voltB</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>sld_voltB</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>259</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>223</x>
+     <y>148</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spb_voltC</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>sld_voltC</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>244</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>218</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spb_voltD</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>sld_voltD</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>252</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>198</x>
+     <y>280</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
