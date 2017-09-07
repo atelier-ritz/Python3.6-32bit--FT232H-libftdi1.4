@@ -2,7 +2,6 @@ from PyQt5 import QtCore, QtWidgets, uic
 import Adafruit_GPIO as GPIO
 import Adafruit_GPIO.FT232H as FT232H
 from MCP4728 import MCP4728
-import time
 
 # UI config
 qtCreatorFile = "mainwindow.ui"
