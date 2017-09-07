@@ -58,24 +58,21 @@ Some errors might pop out if you are using the latest cmake-gui. You can fix tha
 
 Before:
 
+```
 SWIG_ADD_MODULE(ftdi1 python ftdi1.i)
+```
 
 After:
 
-  if (${CMAKE_VERSION} VERSION_LESS "3.8.0")
-
-    SWIG_ADD_MODULE(ftdi1 python ftdi1.i)
-    
-  else()
-
-    SWIG_ADD_LIBRARY(ftdi1
-    
-    LANGUAGE python
-    
-    SOURCES ftdi1.i)
-    
-  endif()
-
+```
+if (${CMAKE_VERSION} VERSION_LESS "3.8.0")
+  SWIG_ADD_MODULE(ftdi1 python ftdi1.i)
+else()
+  SWIG_ADD_LIBRARY(ftdi1
+  LANGUAGE python
+  SOURCES ftdi1.i)
+endif()
+```
 Note2:
 
 Some errors might pop out telling you some files are missing. (such as xxx.h and usblib.dll) You can probably find these files here. (http://libusb.info/)
