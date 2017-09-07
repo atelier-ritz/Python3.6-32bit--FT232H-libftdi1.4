@@ -2,3 +2,4 @@
 Opencv 3.3 grab Binary from here: http://www.lfd.uci.edu/~gohlke/pythonlibs/
 Get Qt designer from here: https://pypi.python.org/pypi/pyqt5-tools (The one in the winpython dir doesn't work)
 Put all FTDI .dll, .py, .pyd into site-packages
+dll dependecy walker http://www.dependencywalker.com/
