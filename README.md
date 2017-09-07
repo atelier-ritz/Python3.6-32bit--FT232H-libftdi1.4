@@ -18,8 +18,23 @@ Follow the Adafruit tutorial except that:
   - at step2 "libftdi Install", use the files in my release instead of theirs
   - at step3 "Adafruit Python GPIO Library Install", overwrite FT232H.py file in "Python diretory/Lib/site-packages/Adafruit_GPIO"
 
-## Contents
-Suggested winpython env
+Then you should be able to run the codes in Example folder.
+
+========================================================
+
+Read below only if you are interested in how to compile the libftdi1.4 source code
+
+========================================================
+
+## How to compile the libftdi1.4 Python binding on Windows
+
+You need to prepare:
+  - libftdi1.4 source code (https://www.intra2net.com/en/developer/libftdi/)
+  - cmake Windows binary distribution (https://cmake.org/download/)
+  - GCC, G++ compilors. I used Qt creator. (https://www.qt.io/ide/)
+  - SWIG, a c++ to Python "interpreter". (http://www.swig.org/)
+
+Note: You can also cross-compile it for Windows on a Linux machine.
 
 
 ## Connection
