@@ -62,11 +62,11 @@ SWIG_ADD_MODULE(ftdi1 python ftdi1.i)
 
 After:
 
-if (${CMAKE_VERSION} VERSION_LESS "3.8.0")
+  if (${CMAKE_VERSION} VERSION_LESS "3.8.0")
 
     SWIG_ADD_MODULE(ftdi1 python ftdi1.i)
     
-else()
+  else()
 
     SWIG_ADD_LIBRARY(ftdi1
     
@@ -74,7 +74,7 @@ else()
     
     SOURCES ftdi1.i)
     
-endif()
+  endif()
 
 Note2:
 
