@@ -79,7 +79,7 @@ Some errors might pop out telling you some files are missing. (such as xxx.h and
 
 ## Create Python binding
 
-Open command prompt and cd to "...\libftdi1-1.4\build\Python".Run command "mingw32-make". Some errors might pop out indicating missing files. Fix that manually. The "ftdi1.py" and "_ftdiq1.pyd" files will then be generated under the same directory. Copy and paste the files to ".../Python diretory/Lib/site-packages" and test the codes in "Example" folder of this Github repository.
+Open command prompt and cd to "...\libftdi1-1.4\build\Python".Run command "mingw32-make". Some errors might pop out indicating missing files. Fix that manually. The "ftdi1.py" and "_ftdiq1.pyd" files will then be generated under the same directory. Copy and paste the files to ".../Python diretory/Lib/site-packages" and test the codes in "Example" folder of this Github repository. Also, you can test the generated .pyd file with "DLL Dependency Walker". (http://www.dependencywalker.com/)
 
 ## Update FT232h.py
 
