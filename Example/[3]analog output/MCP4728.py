@@ -20,7 +20,7 @@ class MCP4728(FT232H.I2CDevice):
     CHANNEL_EEPROM = [__REG_EEPROM_CH_A, __REG_EEPROM_CH_B, __REG_EEPROM_CH_C, __REG_EEPROM_CH_D]
     CHANNEL_DIRECT = [__REG_CH_A, __REG_CH_B, __REG_CH_C, __REG_CH_D]
 
-    def __init__(self, ft232h, address=0x60, clock_hz=400000):
+    def __init__(self, ft232h, address=0x60, clock_hz=600000):
         super().__init__(ft232h,address,clock_hz)
         self.clearEEPROM()
         atexit.register(self.clearEEPROM) # clear voltage output at normal exit (not executed when unexpected error happens)

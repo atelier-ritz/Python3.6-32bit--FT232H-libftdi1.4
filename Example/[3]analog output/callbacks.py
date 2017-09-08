@@ -2,6 +2,7 @@ from PyQt5 import QtCore, QtWidgets, uic
 import Adafruit_GPIO as GPIO
 import Adafruit_GPIO.FT232H as FT232H
 from MCP4728 import MCP4728
+from random import randint
 
 # UI config
 qtCreatorFile = "mainwindow.ui"
@@ -36,6 +37,11 @@ class GUI(QtWidgets.QMainWindow,Ui_MainWindow):
         self.my_timer.timeout.connect(self.update)
         self.my_timer.start(100) # msec
 
+        self.my_timer2 = QtCore.QTimer()
+        self.my_timer2.timeout.connect(self.update2)
+        self.my_timer2.start(10) # msec
+        self.c = 0
+
     def on_sld_voltA(self,val):
         i2c.setVoltage(0,val)
     def on_sld_voltB(self,val):
@@ -56,3 +62,9 @@ class GUI(QtWidgets.QMainWindow,Ui_MainWindow):
             self.lbl_c0.setNum(0)
         else:
             self.lbl_c0.setNum(1)
+
+    def update2(self):
+        self.c += 8
+        if self.c >= 4095:
+            self.c = 0
+        self.sld_voltB.setValue(self.c)
