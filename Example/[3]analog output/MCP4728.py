@@ -1,22 +1,28 @@
 import Adafruit_GPIO.FT232H as FT232H
-import math
 import time
 import atexit
-import threading
 
+# =============================================
+# MCP4728
+# 12-bit 4-channel DAC
+# Refer to the datasheet for its register, address, etc.
+# by Tianqi 2017 Sept
+# =============================================
 class MCP4728(FT232H.I2CDevice):
-    # [Registers] Refer to MCP4728 datasheet [5.5 Writing and Reading Registers and EEPROM] for more information
-    # EEPROM: nonvolatile memory feature enables the DAC device to hold the DAC input codes during power-off time
-    __REG_EEPROM_CH_A = 0x58
-    __REG_EEPROM_CH_B = 0x5A
-    __REG_EEPROM_CH_C = 0x5C
-    __REG_EEPROM_CH_D = 0x5E
-    # Input register: loses data when powered off
-    __REG_CH_A = 0x40
-    __REG_CH_B = 0x42
-    __REG_CH_C = 0x44
-    __REG_CH_D = 0x46
+    # Registers
+    __REG_EEPROM_CH_A   = 0x58
+    __REG_EEPROM_CH_B   = 0x5A
+    __REG_EEPROM_CH_C   = 0x5C
+    __REG_EEPROM_CH_D   = 0x5E
+    __REG_CH_A          = 0x40
+    __REG_CH_B          = 0x42
+    __REG_CH_C          = 0x44
+    __REG_CH_D          = 0x46
 
+    # Bits
+    # blah blah blah
+
+    # Channels
     CHANNEL_EEPROM = [__REG_EEPROM_CH_A, __REG_EEPROM_CH_B, __REG_EEPROM_CH_C, __REG_EEPROM_CH_D]
     CHANNEL_DIRECT = [__REG_CH_A, __REG_CH_B, __REG_CH_C, __REG_CH_D]
 
