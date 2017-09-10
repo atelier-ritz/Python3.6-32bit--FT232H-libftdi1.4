@@ -1,0 +1,2 @@
+Explained the differences between "threading" and "multiprocess" in Python
+https://stackoverflow.com/questions/3044580/multiprocessing-vs-threading-python
