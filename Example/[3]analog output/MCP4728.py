@@ -31,11 +31,11 @@ class MCP4728(FT232H.I2CDevice):
         self.clearEEPROM()
         atexit.register(self.clearEEPROM) # clear voltage output at normal exit (not executed when unexpected error happens)
 
-    def fastSetVoltage(self, voltABCD):
+    def fastSetVoltageSequentially(self, voltABCD):
         # set seqentially. how to choose vref?
         # voltage chopping 0-4095
         voltA = voltA & 0x0FFF
-        self.write.....
+        self.write..... address volta voltb voltc voltd volta ...
         
         
     def setVoltage(self, channel, voltage, eeprom=False, internal_refvdd=True):
