@@ -1,7 +1,7 @@
 import Adafruit_GPIO.FT232H as FT232H
 import time
 import atexit
-
+# import datetime
 # =============================================
 # MCP4728
 # 12-bit 4-channel DAC
@@ -28,17 +28,32 @@ class MCP4728(FT232H.I2CDevice):
 
     def __init__(self, ft232h, address=0x60, clock_hz=600000):
         super().__init__(ft232h,address,clock_hz)
+        self.writeRaw8(0x8F)    # use reference voltage 2.048V
+        self.writeRaw8(0xCF)    # use gain = 2
         self.clearEEPROM()
         atexit.register(self.clearEEPROM) # clear voltage output at normal exit (not executed when unexpected error happens)
 
     def fastSetVoltageSequentially(self, voltABCD):
-        # set seqentially. how to choose vref?
-        # voltage chopping 0-4095
-        voltA = voltA & 0x0FFF
-        self.write..... address volta voltb voltc voltd volta ...
-        
-        
-    def setVoltage(self, channel, voltage, eeprom=False, internal_refvdd=True):
+        # Choose reference voltage and gain according to the bit defined in  __init__()
+        # subject to the changes you made in setVoltage()
+        data = []
+        for volt in voltABCD:
+            if (volt > 4095): volt = 4095
+            if (volt < 0): volt = 0
+            volt = volt & 0x0FFF
+            value_low  = volt & 0xFF
+            value_high = (volt >> 8) & 0xFF
+            data.extend([value_high,value_low])
+        self._idle()
+        self._transaction_start()
+        self._i2c_start()
+        self._i2c_write_bytes([self._address_byte(False)] + data)
+        self._i2c_stop()
+        response = self._transaction_end()
+        self._verify_acks(response)
+
+
+    def setVoltage(self, channel, voltage, eeprom=False, internal_refvdd=False):
         if (voltage > 4095):
             voltage = 4095
         if (voltage < 0):
