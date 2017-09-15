@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>327</width>
-    <height>611</height>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,9 +23,12 @@
       <height>551</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Test Mode</string>
+      <string>DAC Test</string>
      </attribute>
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
@@ -174,126 +177,18 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>300</y>
-        <width>291</width>
-        <height>221</height>
+        <y>290</y>
+        <width>301</width>
+        <height>211</height>
        </rect>
       </property>
       <property name="title">
-       <string>Signal Generator</string>
+       <string>Sine Wave Generator (Channel A)</string>
       </property>
-      <widget class="QLabel" name="label_10">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>10</y>
-         <width>80</width>
-         <height>19</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Channel A</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_14">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>140</y>
-         <width>101</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Offset (0-4095)</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="cbb_waveformA">
-       <property name="geometry">
-        <rect>
-         <x>223</x>
-         <y>40</y>
-         <width>51</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <item>
-        <property name="text">
-         <string>None</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sin</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Square</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Triangle</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QDoubleSpinBox" name="dspb_freqA">
-       <property name="geometry">
-        <rect>
-         <x>223</x>
-         <y>70</y>
-         <width>51</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="value">
-        <double>10.000000000000000</double>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_7">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>30</y>
-         <width>75</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Waveform</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_9">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>100</y>
-         <width>101</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Amplitude (0-2048)</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_8">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>70</y>
-         <width>75</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Frequency (Hz)</string>
-       </property>
-      </widget>
       <widget class="QCheckBox" name="chb_generateA">
        <property name="geometry">
         <rect>
-         <x>50</x>
+         <x>120</x>
          <y>180</y>
          <width>70</width>
          <height>17</height>
@@ -306,44 +201,12 @@
         <string>Generate</string>
        </property>
       </widget>
-      <widget class="QSpinBox" name="spb_offsetA">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>140</y>
-         <width>51</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="maximum">
-        <number>4095</number>
-       </property>
-       <property name="value">
-        <number>2048</number>
-       </property>
-      </widget>
-      <widget class="QSpinBox" name="spb_ampA">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>110</y>
-         <width>51</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="maximum">
-        <number>2048</number>
-       </property>
-       <property name="value">
-        <number>2048</number>
-       </property>
-      </widget>
       <widget class="QSlider" name="horizontalSlider">
        <property name="geometry">
         <rect>
          <x>110</x>
-         <y>110</y>
-         <width>91</width>
+         <y>100</y>
+         <width>111</width>
          <height>22</height>
         </rect>
        </property>
@@ -362,7 +225,7 @@
         <rect>
          <x>110</x>
          <y>140</y>
-         <width>91</width>
+         <width>111</width>
          <height>22</height>
         </rect>
        </property>
@@ -376,27 +239,106 @@
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
-      <zorder>label_10</zorder>
-      <zorder>label_14</zorder>
-      <zorder>label_10</zorder>
-      <zorder>cbb_waveformA</zorder>
-      <zorder>dspb_freqA</zorder>
-      <zorder>label_7</zorder>
-      <zorder>label_9</zorder>
-      <zorder>label_8</zorder>
-      <zorder>label_7</zorder>
-      <zorder>label_9</zorder>
-      <zorder>label_8</zorder>
-      <zorder>chb_generateA</zorder>
-      <zorder>spb_offsetA</zorder>
-      <zorder>spb_ampA</zorder>
-      <zorder>horizontalSlider</zorder>
-      <zorder>horizontalSlider_2</zorder>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>20</y>
+         <width>55</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QSpinBox" name="spb_samplerate">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>64</number>
+          </property>
+          <property name="singleStep">
+           <number>1</number>
+          </property>
+          <property name="value">
+           <number>16</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="dspb_freqA">
+          <property name="value">
+           <double>10.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spb_ampA">
+          <property name="maximum">
+           <number>2048</number>
+          </property>
+          <property name="value">
+           <number>2048</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="spb_offsetA">
+          <property name="maximum">
+           <number>4095</number>
+          </property>
+          <property name="value">
+           <number>2048</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>163</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string># of samples per period</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>Frequency (Hz)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Amplitude (0-2048)</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_14">
+          <property name="text">
+           <string>Offset (0-4095)</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Camera Test</string>
      </attribute>
     </widget>
    </widget>
