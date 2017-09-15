@@ -347,76 +347,56 @@
       <property name="title">
        <string>Camera Control</string>
       </property>
-      <widget class="QCheckBox" name="checkBox">
+      <widget class="QCheckBox" name="chb_showcam1">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
-         <x>90</x>
-         <y>80</y>
+         <x>60</x>
+         <y>130</y>
          <width>81</width>
          <height>17</height>
         </rect>
        </property>
        <property name="text">
-        <string>Show cam1</string>
+        <string>Show</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_2">
+      <widget class="QCheckBox" name="chb_showcam2">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
-         <x>250</x>
-         <y>80</y>
+         <x>240</x>
+         <y>130</y>
          <width>91</width>
          <height>17</height>
         </rect>
        </property>
        <property name="text">
-        <string>Show cam2</string>
+        <string>Show</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btn_initcam1">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>70</y>
-         <width>71</width>
+         <x>60</x>
+         <y>100</y>
+         <width>111</width>
          <height>23</height>
         </rect>
        </property>
        <property name="text">
-        <string>Init cam1</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_5">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>50</y>
-         <width>61</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>undetected</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_6">
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>50</y>
-         <width>71</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>undetected</string>
+        <string>Init</string>
        </property>
       </widget>
       <widget class="QTextEdit" name="textEdit">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>140</y>
+         <x>30</x>
+         <y>190</y>
          <width>141</width>
          <height>271</height>
         </rect>
@@ -434,8 +414,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QTextEdit" name="textEdit_2">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>140</y>
+         <x>190</x>
+         <y>190</y>
          <width>141</width>
          <height>271</height>
         </rect>
@@ -453,8 +433,8 @@ p, li { white-space: pre-wrap; }
       <widget class="Line" name="line">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>100</y>
+         <x>30</x>
+         <y>150</y>
          <width>321</width>
          <height>16</height>
         </rect>
@@ -466,8 +446,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_10">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>110</y>
+         <x>20</x>
+         <y>160</y>
          <width>91</width>
          <height>20</height>
         </rect>
@@ -479,8 +459,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="pushButton_3">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>420</y>
+         <x>60</x>
+         <y>470</y>
          <width>75</width>
          <height>23</height>
         </rect>
@@ -492,8 +472,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="pushButton_4">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>420</y>
+         <x>230</x>
+         <y>470</y>
          <width>75</width>
          <height>23</height>
         </rect>
@@ -505,8 +485,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="pushButton_5">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>110</y>
+         <x>150</x>
+         <y>160</y>
          <width>75</width>
          <height>23</height>
         </rect>
@@ -518,8 +498,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="pushButton_6">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>110</y>
+         <x>250</x>
+         <y>160</y>
          <width>75</width>
          <height>23</height>
         </rect>
@@ -528,90 +508,184 @@ p, li { white-space: pre-wrap; }
         <string>Load preset</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="btn_initcam2">
        <property name="geometry">
         <rect>
-         <x>170</x>
-         <y>70</y>
-         <width>71</width>
+         <x>240</x>
+         <y>100</y>
+         <width>111</width>
          <height>23</height>
         </rect>
        </property>
        <property name="text">
-        <string>Init cam2</string>
+        <string>Init</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_11">
+      <widget class="Line" name="line_2">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>20</y>
-         <width>47</width>
-         <height>13</height>
+         <x>170</x>
+         <y>10</y>
+         <width>20</width>
+         <height>141</height>
         </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
-        <string>Port</string>
+        <string>Camera 1</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_12">
+      <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>30</y>
-         <width>47</width>
-         <height>13</height>
+         <x>190</x>
+         <y>20</y>
+         <width>81</width>
+         <height>31</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
-        <string>Port</string>
+        <string>Camera 2</string>
        </property>
       </widget>
-      <widget class="QSpinBox" name="spinBox">
+      <widget class="QWidget" name="">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>20</y>
-         <width>42</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QSpinBox" name="spinBox_2">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>20</y>
-         <width>42</width>
-         <height>22</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
+         <x>90</x>
          <y>50</y>
-         <width>47</width>
-         <height>13</height>
+         <width>81</width>
+         <height>41</height>
         </rect>
        </property>
-       <property name="text">
-        <string>State</string>
-       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QSpinBox" name="spb_portcam1">
+          <property name="minimum">
+           <number>-1</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lab_statecam1">
+          <property name="text">
+           <string>undetected</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
-      <widget class="QLabel" name="label_15">
+      <widget class="QWidget" name="">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>60</x>
          <y>50</y>
-         <width>47</width>
-         <height>13</height>
+         <width>28</width>
+         <height>41</height>
         </rect>
        </property>
-       <property name="text">
-        <string>State</string>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string>Port</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_13">
+          <property name="text">
+           <string>State</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>50</y>
+         <width>28</width>
+         <height>41</height>
+        </rect>
        </property>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_12">
+          <property name="text">
+           <string>Port</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_15">
+          <property name="text">
+           <string>State</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>50</y>
+         <width>81</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QSpinBox" name="spb_portcam2">
+          <property name="minimum">
+           <number>-1</number>
+          </property>
+          <property name="value">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lab_statecam2">
+          <property name="text">
+           <string>undetected</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </widget>
@@ -644,11 +718,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>245</x>
-     <y>113</y>
+     <y>103</y>
     </hint>
     <hint type="destinationlabel">
      <x>300</x>
-     <y>112</y>
+     <y>102</y>
     </hint>
    </hints>
   </connection>
@@ -660,11 +734,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>245</x>
-     <y>177</y>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
      <x>300</x>
-     <y>176</y>
+     <y>166</y>
     </hint>
    </hints>
   </connection>
@@ -676,11 +750,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>245</x>
-     <y>240</y>
+     <y>230</y>
     </hint>
     <hint type="destinationlabel">
      <x>300</x>
-     <y>239</y>
+     <y>229</y>
     </hint>
    </hints>
   </connection>
@@ -692,11 +766,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>245</x>
-     <y>304</y>
+     <y>294</y>
     </hint>
     <hint type="destinationlabel">
      <x>300</x>
-     <y>303</y>
+     <y>293</y>
     </hint>
    </hints>
   </connection>
@@ -708,11 +782,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>300</x>
-     <y>112</y>
+     <y>102</y>
     </hint>
     <hint type="destinationlabel">
      <x>245</x>
-     <y>113</y>
+     <y>103</y>
     </hint>
    </hints>
   </connection>
@@ -724,11 +798,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>300</x>
-     <y>176</y>
+     <y>166</y>
     </hint>
     <hint type="destinationlabel">
      <x>245</x>
-     <y>177</y>
+     <y>167</y>
     </hint>
    </hints>
   </connection>
@@ -740,11 +814,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>300</x>
-     <y>239</y>
+     <y>229</y>
     </hint>
     <hint type="destinationlabel">
      <x>245</x>
-     <y>240</y>
+     <y>230</y>
     </hint>
    </hints>
   </connection>
@@ -756,11 +830,11 @@ p, li { white-space: pre-wrap; }
    <hints>
     <hint type="sourcelabel">
      <x>300</x>
-     <y>303</y>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>245</x>
-     <y>304</y>
+     <y>294</y>
     </hint>
    </hints>
   </connection>
@@ -771,12 +845,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>200</x>
-     <y>470</y>
+     <x>202</x>
+     <y>454</y>
     </hint>
     <hint type="destinationlabel">
-     <x>238</x>
-     <y>470</y>
+     <x>243</x>
+     <y>449</y>
     </hint>
    </hints>
   </connection>
@@ -787,12 +861,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>244</x>
-     <y>478</y>
+     <x>247</x>
+     <y>449</y>
     </hint>
     <hint type="destinationlabel">
-     <x>202</x>
-     <y>481</y>
+     <x>204</x>
+     <y>454</y>
     </hint>
    </hints>
   </connection>
@@ -803,12 +877,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>153</x>
-     <y>505</y>
+     <x>155</x>
+     <y>494</y>
     </hint>
     <hint type="destinationlabel">
-     <x>250</x>
-     <y>505</y>
+     <x>253</x>
+     <y>483</y>
     </hint>
    </hints>
   </connection>
@@ -819,12 +893,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>243</x>
-     <y>502</y>
+     <x>246</x>
+     <y>483</y>
     </hint>
     <hint type="destinationlabel">
-     <x>196</x>
-     <y>498</y>
+     <x>198</x>
+     <y>494</y>
     </hint>
    </hints>
   </connection>
