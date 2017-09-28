@@ -479,9 +479,9 @@ class SPI(object):
         len_high = (length >> 8) & 0xFF
         self._assert_cs()
         # Send command and length.
-        self._ft232h._write(bytearray((command, len_low, len_high)))
+        self._ft232h._write(bytes((command, len_low, len_high)))
         # Send data.
-        self._ft232h._write(bytearray(data))
+        self._ft232h._write(bytes(data))
         self._deassert_cs()
 
     def read(self, length):
@@ -498,10 +498,10 @@ class SPI(object):
         len_high = ((length-1) >> 8) & 0xFF
         self._assert_cs()
         # Send command and length.
-        self._ft232h._write(bytearray((command, len_low, len_high, 0x87)))
+        self._ft232h._write(bytes((command, len_low, len_high, 0x87)))
         self._deassert_cs()
         # Read response bytes.
-        return bytearray(self._ft232h._poll_read(length))
+        return bytes(self._ft232h._poll_read(length))
 
     def transfer(self, data):
         """Full-duplex SPI read and write.  The specified array of bytes will be
@@ -519,12 +519,12 @@ class SPI(object):
         len_high = ((length-1) >> 8) & 0xFF
         # Send command and length.
         self._assert_cs()
-        self._ft232h._write(bytearray((command, len_low, len_high)))
-        self._ft232h._write(bytearray(data))
+        self._ft232h._write(bytes((command, len_low, len_high)))
+        self._ft232h._write(bytes(data))
         self._ft232h._write(b'\x87')
         self._deassert_cs()
         # Read response bytes.
-        return bytearray(self._ft232h._poll_read(length))
+        return bytes(self._ft232h._poll_read(length))
 
 
 class I2CDevice(object):
